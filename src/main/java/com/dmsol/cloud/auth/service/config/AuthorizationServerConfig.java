@@ -34,25 +34,17 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         return new InMemoryTokenStore();
     }
 
-
-//    @Bean
-//    public ApprovalStore approvalStore() throws Exception {
-//        TokenApprovalStore store = new TokenApprovalStore();
-//        store.setTokenStore(tokenStore());
-//        return store;
-//    }
-
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 
         clients.inMemory()
-                .withClient("browser")
-                .resourceIds("foo")
-                .autoApprove(true)
-                .authorizedGrantTypes("implicit","refresh_token", "password", "authorization_code", "client_credentials")
-                .scopes("ui")
-                .accessTokenValiditySeconds(180)
-                .refreshTokenValiditySeconds(180);
+               .withClient("browser")
+               .resourceIds("foo")
+               .autoApprove(true)
+               .authorizedGrantTypes("implicit","refresh_token", "password", "authorization_code", "client_credentials")
+               .scopes("ui")
+               .accessTokenValiditySeconds(180)
+               .refreshTokenValiditySeconds(180);
     }
 
     @Override

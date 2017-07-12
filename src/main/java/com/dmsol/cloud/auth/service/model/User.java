@@ -1,9 +1,6 @@
 package com.dmsol.cloud.auth.service.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -24,10 +21,10 @@ import java.util.Collections;
 @Entity
 public class User extends AbstractPersistable<Long> implements UserDetails {
 
-    @Getter @Setter
+    @Getter(value = AccessLevel.NONE)
     private String username;
 
-    @Getter @Setter
+    @Getter(value = AccessLevel.NONE)
     private String password;
 
     @Getter @Setter
